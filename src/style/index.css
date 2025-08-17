@@ -1,4 +1,15 @@
+@import url('');
+/* index.css */
+@font-face {
+  font-family: 'MyFont';
+  src: url('./digital_7/digital-7\ \(mono\).ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 *{
           padding: 0%;
           margin: 0%;
+ 
 }

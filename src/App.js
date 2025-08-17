@@ -14,9 +14,11 @@ const timer = setInterval(()=>{
 });
 
   return (
-    <div className="App" style={{display:"flex",justifyContent:"center",alignContent:"center",height:"100vh",width:"100%",background:"green"}}>
-      <div  style={{minWidth:"900px",minHeightheight:"700px",margin:"auto",display:"flex",justifyContent:"center"}}>
-               <h1 style={{fontSize:"250px",fontWeight:"700px"}}>
+    <div className="App" style={{display:"flex",justifyContent:"center",alignContent:"center",height:"100vh",width:"100%",background:"#181C14"}}>
+
+      <div  style={{flexDirection:"column",borderRadius:20,padding:10,minWidth:"400px",minHeightheight:"200px",margin:"auto",display:"flex",justifyContent:"center",alignItems:"center",background:"#3C3D37"}}>
+          
+               <h1 style={{margin:10,fontSize:"250px",fontWeight:"700px",color:"#ECDFCC",fontFamily:"Myfont"}}>
                {time.toLocaleTimeString()}
                </h1>
       </div>
