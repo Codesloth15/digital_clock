@@ -3,22 +3,24 @@ import { useState,useEffect } from 'react';
 import Navbar from './Components/Navbar';
 
 function App() {
-  const[name,setName]=useState("");
-  const[to,setTo]=useState("To");
+const[time,setTime] = useState(new Date());
+useEffect(()=>{
 
-const addName =()=>{
-  setName("To: Par patingin ng prompt mo!");
-  setTo("aray ko!");
-};
-
+const timer = setInterval(()=>{
+  setTime(new Date());
+})
 
 
+});
 
   return (
-    <div className="App" style={{display:"flex",flexDirection:"column",height:"100vh"}}>
-      <Navbar name={name}></Navbar>
-      <h1>{name ?name:"From: Par patingin nga ng code mo!"}</h1>
-      <button onClick={addName} style={{fontSize:"25px",fontWeight:"700px",width:"150px",height:"40px",marginLeft:"20px"}}>{to}</button>
+    <div className="App" style={{display:"flex",justifyContent:"center",alignContent:"center",height:"100vh",width:"100%",background:"green"}}>
+      <div  style={{minWidth:"900px",minHeightheight:"700px",margin:"auto",display:"flex",justifyContent:"center"}}>
+               <h1 style={{fontSize:"250px",fontWeight:"700px"}}>
+               {time.toLocaleTimeString()}
+               </h1>
+      </div>
+      
     </div>
   );
 }
