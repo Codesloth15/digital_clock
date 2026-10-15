@@ -1,0 +1,39 @@
+.app { min-height: 100svh; display: flex; flex-direction: column; padding: 0 5%; background: radial-gradient(ellipse at 50% 42%, #fff, #f7f7f5 70%); }
+header { height: 104px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e5e5e2; }
+.brand { display: flex; align-items: center; color: inherit; text-decoration: none; font-size: 15px; font-weight: 800; letter-spacing: 2px; }.brand span { font-weight: 400; }.brand .brand-icon { font-size: 27px; margin-right: 12px; }
+.header-note { font-size: 12px; color: #888; }
+.clock-section { flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 70px 0 60px; }
+.eyebrow { font-size: 10px; letter-spacing: 3px; color: #888; }.date { font-size: 18px; margin: 22px 0 42px; letter-spacing: .3px; }
+.clock { display: flex; align-items: flex-start; gap: clamp(7px, 1.8vw, 25px); }.digit-pair { display: flex; gap: clamp(4px, .7vw, 10px); }
+.digit { --height: clamp(72px, 15.2vw, 205px); position: relative; display: block; height: var(--height); width: clamp(40px, 9.4vw, 126px); perspective: 600px; border-radius: 9px; background: #222; box-shadow: 0 3px 2px #0002, 0 12px 20px #00000012; font-size: clamp(56px, 12.2vw, 165px); font-weight: 700; letter-spacing: -5px; color: #fafafa; }
+.half { position: absolute; left: 0; right: 0; height: 50%; overflow: hidden; backface-visibility: hidden; }.half span { position: absolute; inset: 0; height: var(--height); display: flex; align-items: center; justify-content: center; padding-right: 4px; }
+.top { top: 0; background: linear-gradient(#282828, #202020); border-radius: 9px 9px 0 0; border-bottom: 1px solid #090909; }.bottom { bottom: 0; background: linear-gradient(#272727, #303030); border-radius: 0 0 9px 9px; border-top: 1px solid #424242; }.bottom span { top: -100%; }
+.flip-top { transform-origin: bottom; animation: flip-top .3s ease-in forwards; z-index: 3; }.flip-bottom { transform-origin: top; transform: rotateX(90deg); animation: flip-bottom .3s .3s ease-out forwards; z-index: 3; }
+.hinge { position: absolute; top: calc(50% - 6px); width: 3px; height: 12px; background: #141414; border-radius: 2px; z-index: 4; }.hinge.left { left: 0; }.hinge.right { right: 0; }
+.colon { height: clamp(72px, 15.2vw, 205px); display: flex; justify-content: center; flex-direction: column; gap: 19px; }.colon i { height: 6px; width: 6px; background: #444; border-radius: 50%; }
+.unit-label { display: block; text-align: center; margin-top: 23px; font-size: 9px; letter-spacing: 3px; color: #999; text-transform: uppercase; }.period { margin-top: 18px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+.details { display: flex; align-items: center; gap: 32px; margin-top: 53px; }.location, .weather { display: flex; align-items: center; gap: 12px; }.details svg { color: #666; }
+.location select { display: block; border: 0; background: transparent; color: #333; font-size: 13px; padding: 0 15px 0 0; cursor: pointer; max-width: 150px; }.secondary { display: block; font-size: 10px; color: #888; margin-top: 5px; }.temperature { font-size: 14px; }.divider { height: 30px; width: 1px; background: #dededb; }
+.format-switch { display: flex; gap: 3px; padding: 4px; border: 1px solid #e4e4e0; border-radius: 7px; margin-top: 40px; background: #ededea; }.format-switch button { border: 0; border-radius: 4px; padding: 7px 14px; color: #777; font-size: 10px; background: transparent; cursor: pointer; }.format-switch button.active { color: #333; background: #fff; box-shadow: 0 1px 3px #0001; }
+footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #e5e5e2; min-height: 72px; font-size: 9px; color: #888; letter-spacing: 1.6px; }footer a { color: #888; text-decoration: none; letter-spacing: 0; }
+@keyframes flip-top { to { transform: rotateX(-90deg); } }@keyframes flip-bottom { to { transform: rotateX(0deg); } }
+@media (max-width: 600px) { header { height: 76px; }.header-note { display: none; }.date { font-size: 15px; margin-bottom: 32px; }.digit { letter-spacing: -2px; }.half span { padding-right: 2px; }.colon { gap: 12px; }.colon i { width: 4px; height: 4px; }.unit-label { letter-spacing: 2px; font-size: 8px; margin-top: 17px; }.details { gap: 22px; margin-top: 40px; }footer { font-size: 8px; letter-spacing: 1px; } }
+@media (prefers-reduced-motion: reduce) { .flip-top, .flip-bottom { animation-duration: .001s; animation-delay: 0s; } }
+.location-picker { position: relative; }
+.location-trigger { display: flex; align-items: center; gap: 12px; border: 0; border-radius: 5px; background: transparent; padding: 5px 6px; margin: -5px -6px; font-size: 13px; color: #333; cursor: pointer; }
+.location-trigger:hover, .location-trigger[aria-expanded="true"] { background: #e9e9e6; }
+.location-panel { position: absolute; top: calc(100% + 14px); left: -35px; width: min(320px, 85vw); padding: 18px; background: #fff; border: 1px solid #e4e4e0; border-radius: 13px; box-shadow: 0 12px 40px #0002; z-index: 10; text-align: left; }
+.picker-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 13px; font-weight: 600; }
+.picker-close { background: transparent; border: 0; cursor: pointer; color: #777; font-size: 23px; padding: 0 3px; }
+.location-panel label { display: block; font-size: 11px; color: #777; margin: 12px 0 6px; }
+.location-panel select, .location-panel input { width: 100%; max-width: none; padding: 10px 12px; border: 1px solid #dededb; border-radius: 7px; background: #f8f8f6; color: #222; font: inherit; font-size: 12px; }
+.location-panel input:focus { outline: 2px solid #aaa; outline-offset: 1px; }
+.result-heading { font-size: 9px; letter-spacing: 1.6px; color: #999; margin: 18px 0 8px; }
+.location-results { max-height: 215px; overflow-y: auto; }
+.location-result { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 8px; border: 0; border-radius: 6px; background: #fff; text-align: left; cursor: pointer; color: #333; }
+.location-result:hover, .location-result:focus-visible { background: #f0f0ed; }
+.location-result strong { display: block; font-size: 12px; font-weight: 500; }
+.location-result small { display: block; margin-top: 4px; font-size: 10px; color: #888; }
+.search-status { font-size: 11px; line-height: 1.6; color: #888; margin: 8px 0 0; }
+.search-status:empty { display: none; }
+@media (max-width: 600px) { .location-panel { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 320px; max-width: 90vw; max-height: 85svh; overflow-y: auto; }.location-panel::backdrop { background: #0003; } }
